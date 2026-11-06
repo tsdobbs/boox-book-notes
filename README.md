@@ -1,6 +1,5 @@
 # boox-book-notes
 
-[![Release](https://img.shields.io/github/v/release/tsdobbs/boox-book-notes)](https://github.com/tsdobbs/boox-book-notes/releases)
 [![Commit activity](https://img.shields.io/github/commit-activity/m/tsdobbs/boox-book-notes)](https://github.com/tsdobbs/boox-book-notes)
 [![License](https://img.shields.io/github/license/tsdobbs/boox-book-notes)](https://github.com/tsdobbs/boox-book-notes/blob/main/LICENSE)
 
