@@ -1,0 +1,108 @@
+[project]
+name = "boox-book-notes"
+version = "0.0.1"
+description = "Parse the notes exported from Boox's NeoReader into blocks for Roam Research"
+authors = [{ name = "Tim Dobbs", email = "tim@dobbs.world" }]
+readme = "README.md"
+keywords = ["boox", "neoreader", "e-reader", "highlights", "annotations", "roam-research"]
+requires-python = ">=3.10,<4.0"
+classifiers = [
+    "Intended Audience :: Developers",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "typer>=0.27.3",
+]
+
+[project.urls]
+Homepage = "https://github.com/tsdobbs/boox-book-notes"
+Repository = "https://github.com/tsdobbs/boox-book-notes"
+
+[project.scripts]
+boox-book-notes = "boox_book_notes.note_parse:cli"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+    "pre-commit>=4.5.1",
+    "mypy>=1.19.1",
+    "ruff>=0.15.7",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["boox_book_notes"]
+
+[tool.mypy]
+files = ["boox_book_notes"]
+disallow_untyped_defs = true
+disallow_any_unimported = true
+no_implicit_optional = true
+check_untyped_defs = true
+warn_return_any = true
+warn_unused_ignores = true
+show_error_codes = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+fix = true
+
+[tool.ruff.lint]
+select = [
+    # flake8-2020
+    "YTT",
+    # flake8-bandit
+    "S",
+    # flake8-bugbear
+    "B",
+    # flake8-builtins
+    "A",
+    # flake8-comprehensions
+    "C4",
+    # flake8-debugger
+    "T10",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+    # mccabe
+    "C90",
+    # pycodestyle
+    "E", "W",
+    # pyflakes
+    "F",
+    # pygrep-hooks
+    "PGH",
+    # pyupgrade
+    "UP",
+    # ruff
+    "RUF",
+    # tryceratops
+    "TRY",
+]
+ignore = [
+    # LineTooLong
+    "E501",
+    # DoNotAssignLambda
+    "E731",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101"]
+
+[tool.ruff.format]
+preview = true
